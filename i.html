@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>반복문 연습</title>
+    <style>
+        body { margin: 0; }
+
+        .box {
+            position: absolute;
+            width: 9.8vw;
+            height: 9.8vh;
+            margin: 0.1vw;
+            line-height: 9.8vh;
+            text-align: center;
+            font-size: 10pt;
+            color: #ffffff;
+            transition: transform 0.3s , background-color 0.3s;
+            border-radius: 4px;
+        }
+
+        .box:hover {
+            transform: rotate(360deg) scale(1.2);
+            background-color: #ffe9f3;  \
+            color: #000;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+<script>
+    let texts = "";
+    let idx = 0;
+
+    for (let y = 0; y < 10; y++) {
+        for (let x = 0; x < 10; x++) {
+            let _left = x * 10;
+            let _top = y * 10;
+            let _inner = "No" + idx;
+
+       
+            let r = parseInt(Math.random() * 30 + 240);  // 240~270
+            let g = parseInt(Math.random() * 50 + 180);  // 180~230
+            let b = parseInt(Math.random() * 60 + 200);  // 200~260
+
+            texts += `<div class='box' style='
+                left:${_left}vw;
+                top:${_top}vh;
+                background-color:rgb(${r},${g},${b});
+            '>${_inner}</div>`;
+            idx++;
+        }
+    }
+
+    document.body.innerHTML = texts;
+</script>
+</body>
+</html>
+
+
+
